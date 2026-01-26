@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import IngredientsComponent from './IngredientsComponent';
 
 function App() {
   
@@ -7,7 +8,9 @@ function App() {
   const MY_KEY = "b5d526191c79ec41df0e9305154a9765";
   
 
-  const [myAnalysis, setMyAnalysis] = useState('');
+  const [mySearch, setMySearch] = useState('');
+  const [nutritionData, setNutritionData] = useState(["1 egg", "2 slices of bread", "1 avocado"]);
+  const [ingredientsData, setIngredientsData] = useState([]);
 
   useEffect(() => {
     const getAnalysis = async () => {
@@ -20,22 +23,55 @@ function App() {
               "Accept-Language": "en"
           },
           body: JSON.stringify({
-              ingr: ["1 egg", "3 tomatoes", "1 avocado"]
+              ingr: nutritionData
           })
       });
       const data = await response.json();
-      console.log(data);
-      console.log(Object.values(data))
-      
-
+      setIngredientsData(data.ingredients);
+      console.log(data.ingredients);
     }
     getAnalysis();
-    }, [])
+    }, [nutritionData]);
+
+    const myIngredients = (e) => {
+      setMySearch(e.target.value);
+      console.log(e.target.value);
+    }
+
+  const getAnalysis = (e) => {
+    e.preventDefault();
+
+    // Fetch nutritional analysis based on mySearch    
+    const ingredientsList = mySearch.split(',').map(ingredient => ingredient.trim());
+    setNutritionData(ingredientsList);
+    console.log("Fetching analysis for:", ingredientsList);
+  }
 
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <div className="App">
+      <div className='header'>
+        <h1>Nutrition Analysis</h1>
+      </div>
+
+      <form className='form' onSubmit={getAnalysis}>
+          <input type="text" placeholder='Enter ingredients separated by commas' value={mySearch} onChange={myIngredients} />
+          <button onClick={getAnalysis}>Get a nutritional analysis</button>
+      </form>
+
+      <div className='total-nutrients'></div>
+
+      <div className='separated-nutrients'>
+        {/* Display individual nutrient information here */}
+       
+        {ingredientsData.map((item, index) => (
+          <IngredientsComponent key={index} item={item} />
+        ))
+        }
+      </div>
+
+    </div>
+
+    
   )
 }
 
