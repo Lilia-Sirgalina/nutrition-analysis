@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import IngredientsComponent from './IngredientsComponent';
+import Total from './Total';
 
 function App() {
   
@@ -27,15 +28,13 @@ function App() {
           })
       });
       const data = await response.json();
-      setIngredientsData(data.ingredients);
-      console.log(data.ingredients);
+      setIngredientsData(data.ingredients);      
     }
     getAnalysis();
     }, [nutritionData]);
 
     const myIngredients = (e) => {
-      setMySearch(e.target.value);
-      console.log(e.target.value);
+      setMySearch(e.target.value);      
     }
 
   const getAnalysis = (e) => {
@@ -43,26 +42,28 @@ function App() {
 
     // Fetch nutritional analysis based on mySearch    
     const ingredientsList = mySearch.split(',').map(ingredient => ingredient.trim());
-    setNutritionData(ingredientsList);
-    console.log("Fetching analysis for:", ingredientsList);
+    setNutritionData(ingredientsList);    
   }
 
   return (
     <div className="App">
+
       <div className='header'>
         <h1>Nutrition Analysis</h1>
       </div>
 
       <form className='form' onSubmit={getAnalysis}>
-          <input type="text" placeholder='Enter ingredients separated by commas' value={mySearch} onChange={myIngredients} />
+          <input className='search' type="text" placeholder='Enter ingredients separated by commas' value={mySearch} onChange={myIngredients} />
           <button onClick={getAnalysis}>Get a nutritional analysis</button>
       </form>
 
-      <div className='total-nutrients'></div>
+      <div className='total-nutrients'>        
+        {/* Display total nutrients information here */}
+        <Total ingredientsData={ingredientsData} />
+      </div>
 
       <div className='separated-nutrients'>
-        {/* Display individual nutrient information here */}
-       
+        {/* Display individual nutrient information here */}       
         {ingredientsData.map((item, index) => (
           <IngredientsComponent key={index} item={item} />
         ))
@@ -70,7 +71,6 @@ function App() {
       </div>
 
     </div>
-
     
   )
 }

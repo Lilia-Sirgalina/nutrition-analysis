@@ -1,1 +1,58 @@
+body {
+    background-image: url('dish.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    min-height: 100vh;
+}
 
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-family: "Titan One", sans-serif;
+    font-size: 40px;
+    color: #0f0f0f;
+    text-shadow: 2px 2px 4px #ffffff;     
+}
+
+.search {
+    width: 50%;
+    padding: 10px;     
+    border: 1px solid #0f0f0f;  
+    border-radius: 5px; 
+    font-family: "Rubik", sans-serif;  
+    font-weight: 400;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+button {
+    padding: 15px 25px;
+    background-color: rgb(24, 119, 24);
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Rubik", sans-serif;  
+    font-weight: 500;
+    font-size: 15px;
+}
+
+h2 {
+    font-family: "Titan One", sans-serif;
+    font-size: 25px;
+    color: #0f0f0f; 
+    font-weight: lighter;      
+}
