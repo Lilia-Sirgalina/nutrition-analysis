@@ -3,6 +3,7 @@ import './App.css'
 import IngredientsComponent from './IngredientsComponent';
 import Total from './Total';
 
+
 function App() {
   
   const MY_ID = "51585a50";
@@ -12,6 +13,7 @@ function App() {
   const [mySearch, setMySearch] = useState('');
   const [nutritionData, setNutritionData] = useState(["1 egg", "2 slices of bread", "1 avocado"]);
   const [ingredientsData, setIngredientsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);  
 
   useEffect(() => {
     const getAnalysis = async () => {
@@ -27,8 +29,11 @@ function App() {
               ingr: nutritionData
           })
       });
-      const data = await response.json();
-      setIngredientsData(data.ingredients);      
+      const data = await response.json();     
+
+      setIsLoading(false);
+      setIngredientsData(data.ingredients);   
+      console.log(data);   
     }
     getAnalysis();
     }, [nutritionData]);
@@ -37,8 +42,9 @@ function App() {
       setMySearch(e.target.value);      
     }
 
-  const getAnalysis = (e) => {
+  const getMyAnalysis = (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     // Fetch nutritional analysis based on mySearch    
     const ingredientsList = mySearch.split(',').map(ingredient => ingredient.trim());
@@ -48,19 +54,23 @@ function App() {
   return (
     <div className="App">
 
+      <div className='loader'>
+        {isLoading && <div className="lds-heart"><div></div></div>}
+      </div>
+
       <div className='header'>
         <h1>Nutrition Analysis</h1>
       </div>
 
-      <form className='form' onSubmit={getAnalysis}>
+      <form className='form' onSubmit={getMyAnalysis}>
           <input className='search' type="text" placeholder='Enter ingredients separated by commas' value={mySearch} onChange={myIngredients} />
-          <button onClick={getAnalysis}>Get a nutritional analysis</button>
+          <button onClick={getMyAnalysis}>Get a nutritional analysis</button>
       </form>
 
       <div className='total-nutrients'>        
         {/* Display total nutrients information here */}
         <Total ingredientsData={ingredientsData} />
-      </div>
+      </div>    
 
       <div className='separated-nutrients'>
         {/* Display individual nutrient information here */}       
@@ -76,3 +86,5 @@ function App() {
 }
 
 export default App
+
+
