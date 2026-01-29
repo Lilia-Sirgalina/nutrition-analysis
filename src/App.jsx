@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
+import Swal from 'sweetalert2'
 import './App.css'
 import IngredientsComponent from './IngredientsComponent';
 import Total from './Total';
+
 
 
 function App() {
@@ -29,7 +31,28 @@ function App() {
               ingr: nutritionData
           })
       });
-      const data = await response.json();     
+
+      if (response.ok === false) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please enter correct data",            
+          });
+          setIsLoading(false);
+      return;      
+      } 
+
+      const data = await response.json();
+
+      if (!data.ingredients && data.ingredients.length === 0) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Please enter correct data",            
+          });
+          setIsLoading(false);
+      return;      
+      }
 
       setIsLoading(false);
       setIngredientsData(data.ingredients);   
@@ -52,11 +75,7 @@ function App() {
   }
 
   return (
-    <div className="App">
-
-      <div className='loader'>
-        {isLoading && <div className="lds-heart"><div></div></div>}
-      </div>
+    <div className="App">      
 
       <div className='header'>
         <h1>Nutrition Analysis</h1>
@@ -67,21 +86,36 @@ function App() {
           <button onClick={getMyAnalysis}>Get a nutritional analysis</button>
       </form>
 
-      <div className='total-nutrients'>        
-        {/* Display total nutrients information here */}
-        <Total ingredientsData={ingredientsData} />
-      </div>    
+      <hr />
 
-      <div className='separated-nutrients'>
-        {/* Display individual nutrient information here */}       
-        {ingredientsData.map((item, index) => (
-          <IngredientsComponent key={index} item={item} />
-        ))
-        }
-      </div>
+      {isLoading ? <div className="lds-heart"><div></div></div> :
+          <div className='all-ingredients'>
+              
+              <div className='total-nutrients'>        
+                  {/* Display total nutrients information here */}
+                  <Total ingredientsData={ingredientsData} />
+              </div>  
+
+              <hr />  
+
+              <div className='separated-nutrients'>
+                  <div className="header">
+                      <h2>Ingredient Nutrition Details</h2>    
+                  </div>
+
+                  <div className='each-ingr'>
+                      {/* Display individual nutrient information here */}       
+                      {ingredientsData.map((item, index) => (
+                        <IngredientsComponent key={index} item={item} />
+                      ))
+                      }
+                  </div>
+              </div>
+
+          </div>
+      }
 
     </div>
-    
   )
 }
 

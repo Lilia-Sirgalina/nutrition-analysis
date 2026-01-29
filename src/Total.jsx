@@ -10,11 +10,14 @@ const Total = ({ ingredientsData }) => {
         <div className="Total">
             <div className="header">
                 <h2>Total Nutritional Information for {myIngredients}</h2>    
-            </div>        
-            <p>Total Calories: {totalCalories} kcal</p>
-            <p>Total Protein: {totalProtein} g</p>
-            <p>Total Fat: {totalFat} g</p>
-            <p>Total Carbs: {totalCarbs} g</p>
+            </div>
+
+            <div className="total-information">      
+                <p><span className="title">Total Calories:</span> <span className="quantity">{totalCalories} kcal</span></p>
+                <p><span className="title">Total Protein:</span> <span className="quantity">{totalProtein} g</span></p>
+                <p><span className="title">Total Fat:</span> <span className="quantity">{totalFat} g</span></p>
+                <p><span className="title">Total Carbs:</span> <span className="quantity">{totalCarbs} g</span></p>
+            </div>  
         </div>
     );
 }
