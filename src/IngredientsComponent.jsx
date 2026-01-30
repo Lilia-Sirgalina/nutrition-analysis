@@ -18,7 +18,7 @@ const IngredientsComponent = ({item}) => {
 
         <AccordionGroup color="neutral" variant="plain">
             <Accordion>
-                <AccordionSummary>Nutritional information</AccordionSummary>
+                <AccordionSummary color="white">Nutritional information</AccordionSummary>
 
                 <AccordionDetails>                     
                     <ul className="information">
@@ -38,7 +38,7 @@ const IngredientsComponent = ({item}) => {
             </Accordion>
 
             <Accordion>
-                <AccordionSummary>Vitamins</AccordionSummary>
+                <AccordionSummary color="white">Vitamins</AccordionSummary>
 
                 <AccordionDetails>                                 
                     <ul className="vitamins">
@@ -57,7 +57,7 @@ const IngredientsComponent = ({item}) => {
             </Accordion>
 
             <Accordion>
-                <AccordionSummary>Minerals</AccordionSummary>
+                <AccordionSummary color="white">Minerals</AccordionSummary>
                 
                 <AccordionDetails>                    
                     <ul className="minerals">

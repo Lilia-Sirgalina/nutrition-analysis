@@ -1,106 +1,106 @@
-
-
 body {
-    background-image: url('dish.avif');    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    min-height: 100vh;    
-    background-attachment: fixed;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45); /* затемнение */
-  z-index: -1;
+  background-image: url('https://plus.unsplash.com/premium_photo-1671041617781-2c1fe5696a95?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');    
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  min-height: 100vh;    
+  background-attachment: fixed;
 }
 
 .header {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
-    font-family: "Titan One", sans-serif;
-    font-size: 40px;
-    color: #0f0f0f;
-    text-shadow: 2px 2px 4px #ffffff;
-      text-shadow:
-    -1px -1px 0 #fff,
-     1px -1px 0 #fff,
-    -1px  1px 0 #fff,
-     1px  1px 0 #fff;
-     
+  font-family: "Titan One", sans-serif;
+  font-size: 40px;
+  color: #0f0f0f;
+  text-shadow: 2px 2px 4px #ffffff;
+    text-shadow:
+  -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+  -1px  1px 0 #fff,
+    1px  1px 0 #fff;     
 }
 
 .search {
-    width: 50%;
-    padding: 10px;     
-    border: 1px solid #0f0f0f;  
-    border-radius: 5px; 
-    font-family: "Rubik", sans-serif;  
-    font-weight: 400;
+  width: 50%;
+  padding: 10px;     
+  border: 1px solid #0f0f0f;  
+  border-radius: 5px; 
+  font-family: "Rubik", sans-serif;  
+  font-weight: 400;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    gap: 10px;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
 button {
-    padding: 15px 25px;
-    background-color: rgb(24, 119, 24);
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "Rubik", sans-serif;  
-    font-weight: 500;
-    font-size: 15px;
+  padding: 15px 25px;
+    background: linear-gradient(
+    135deg,
+    rgb(24, 119, 24),
+    rgb(44, 159, 44),
+    rgb(24, 119, 24)
+  );
+  background-size: 200% 200%;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;  
+  font-weight: 500;
+  font-size: 15px;
+  transition: background-position 0.6s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-position: right center;
+  transform: translateY(-1px);
 }
 
 .total-nutrients {
-    margin-top: 60px;
-    margin-bottom: 60px;
-    background-color: rgba(219, 228, 216, 0.8);    
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 
-      0 8px 15px rgba(0, 0, 0, 0.1),
-      0 20px 40px rgba(0, 0, 0, 0.12);  
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: rgba(241, 245, 239, 0.5);    
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 
+    0 8px 15px rgba(0, 0, 0, 0.1),
+    0 20px 40px rgba(0, 0, 0, 0.12);  
 }
 
 h2 {
-    font-family: "Titan One", sans-serif;
-    font-size: 25px;
-      text-shadow:
-    -1px -1px 0 #fff,
-     1px -1px 0 #fff,
-    -1px  1px 0 #fff,
-     1px  1px 0 #fff;
-
-    color: #0f0f0f; 
-    font-weight: lighter;  
-    margin-bottom: 40px;    
+  font-family: "Titan One", sans-serif;
+  font-size: 25px;
+    text-shadow:
+  -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+  -1px  1px 0 #fff,
+    1px  1px 0 #fff;
+  color: #0f0f0f; 
+  font-weight: lighter;  
+  margin-bottom: 40px;    
 }
 
 h3 {
-    font-family: "Titan One", sans-serif;
-    font-size: 18px;
-    color: #0f0f0f; 
-    font-weight: lighter;  
-    margin-bottom: 40px;    
+  font-family: "Titan One", sans-serif;
+  font-size: 18px;
+  color: #0f0f0f; 
+  font-weight: lighter;  
+  margin-bottom: 40px;    
 }
 
 hr {
@@ -134,25 +134,24 @@ p {
 }
 
 .each-ingr {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 20px;     
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;     
 }
 
 .nutrient-item { 
-  width: 300px;
-    border: 1px solid #0f0f0f;
-    border-radius: 10px;
-    padding: 25px;
-    margin-bottom: 20px;
-    font-family: "Rubik", sans-serif;  
-    color: #0f0f0f; 
-    background-color: rgba(219, 228, 216, 0.8); 
-    box-shadow: 
-      0 8px 15px rgba(0, 0, 0, 0.1),
-      0 20px 40px rgba(0, 0, 0, 0.12);    
+  width: 300px;    
+  border-radius: 10px;
+  padding: 25px;
+  margin-bottom: 20px;
+  font-family: "Rubik", sans-serif;  
+  color: #0f0f0f; 
+  background-color: rgba(241, 245, 239, 0.5);   
+  box-shadow: 
+    0 8px 15px rgba(0, 0, 0, 0.1),
+    0 20px 40px rgba(0, 0, 0, 0.12);    
 }
 
 
@@ -173,6 +172,7 @@ p {
   transform-origin: 40px 40px;
   margin-left: 50%;
   margin-top: 150px;
+  color: rgb(24, 119, 24);
 }
 .lds-heart div {
   top: 28px;
@@ -221,3 +221,28 @@ p {
   }
 }
 /* //loader */
+
+@media all and (max-width: 800px) {
+    
+}
+
+@media all and (max-width: 500px) {
+    h1 {
+        font-size: 28px;
+    }
+    .search {
+        width: 90%;
+    }
+    hr {
+        width: 90%;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .title {
+        font-size: 16px;
+    }
+    .quantity {
+        font-size: 20px;
+    }
+}
