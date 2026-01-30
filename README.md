@@ -1,16 +1,56 @@
-# React + Vite
+# Nutrition Analysis
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Demo  
+🔗 View the app on Netlify(https://lily-nutritional-analysis.netlify.app)
 
-Currently, two official plugins are available:
+## Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Nutrition Analysis** is a React-based application that performs a detailed nutritional analysis of ingredients entered by the user.
 
-## React Compiler
+The app sends a **POST request** to the **Edamam API**.  
+Users enter one or multiple ingredients with quantities into the search input. After pressing **Enter** or clicking the search icon, the application displays:
+- A total nutritional analysis
+- A detailed nutritional breakdown for each individual ingredient
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application is built using **React (Vite)** and consists of three main components:
+- The main component, which contains the application logic, title, and search input
+- A component that calculates and displays the total nutritional analysis
+- A component that renders the nutritional analysis for each ingredient using the `.map()` method
 
-## Expanding the ESLint configuration
+To improve readability and avoid overwhelming the page with excessive data, additional nutritional details for each ingredient (such as vitamins, minerals, etc.) are displayed using an **accordion**.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+The app uses the `useEffect` hook to perform the API request and four `useState` hooks:
+- One state stores the user input
+- The second state stores the formatted data used for the POST request
+- The third state stores the response data received from the API
+- The fourth state controls the display of a loading indicator
+
+If the ingredients are entered incorrectly, cannot be recognized by the API, or if an error occurs during the request, an error message is displayed.
+
+No installation is required.
+
+## Here's what the app looks like:
+
+![App Screenshot](Screenshot-app.JPG)
+
+## How to Use:
+- Enter one or more ingredients with quantities into the search input  
+  (for example: *2 eggs, 100g rice, 1 apple*)
+- Press **Enter** or click the **search icon**
+- The app will display the total nutritional analysis and a detailed breakdown for each ingredient
+
+## Features:
+- POST request to the Edamam API for nutritional analysis
+- Total nutrition calculation
+- Ingredient-based nutrition breakdown rendered with `.map()`
+- Accordion for displaying additional nutritional details
+- API data fetching using `useEffect`
+- State management using multiple `useState` hooks
+- Loading indicator during API requests
+- Error handling for invalid input or API errors
+- Clean and user-friendly interface
+
+## Requirements:
+- A modern web browser
+- JavaScript enabled
+

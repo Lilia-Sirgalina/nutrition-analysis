@@ -113,9 +113,24 @@ hr {
 
 .total-information {
     display: flex;    
-    justify-content: space-evenly;    
+    justify-content: center;   
     font-family: "Rubik", sans-serif;
     color: #0f0f0f;      
+}
+
+.total-inf-item1, .total-inf-item2 {
+  display: flex; 
+}
+
+.total-inf-item1 {
+  justify-content: center;
+  flex: 1;
+}
+
+.total-inf-item2 {
+  justify-content: space-evenly;
+  width: 70%;
+  flex: 2;
 }
 
 p {
@@ -170,7 +185,7 @@ p {
   height: 100%;
   transform: rotate(45deg);
   transform-origin: 40px 40px;
-  margin-left: 50%;
+  margin-left: 45%;
   margin-top: 150px;
   color: rgb(24, 119, 24);
 }
@@ -223,7 +238,18 @@ p {
 /* //loader */
 
 @media all and (max-width: 800px) {
-    
+    .search {
+        width: 90%;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    .title {
+        font-size: 16px;
+    }
+    .quantity {
+        font-size: 20px;
+    }
 }
 
 @media all and (max-width: 500px) {
@@ -237,12 +263,20 @@ p {
         width: 90%;
     }
     h2 {
-        font-size: 20px;
+        font-size: 18px;
     }
     .title {
-        font-size: 16px;
+        font-size: 14px;
     }
     .quantity {
-        font-size: 20px;
+        font-size: 18px;
+    }
+    .total-information {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .total-inf-item2 {
+        width: 100%;
     }
 }
