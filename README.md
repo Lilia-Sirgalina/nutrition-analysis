@@ -1,7 +1,7 @@
 # Nutrition Analysis
 
 ## Demo  
-🔗 View the app on Netlify(https://lily-nutritional-analysis.netlify.app)
+🔗 View the app on Netlify(https://project-nutrition-analysis.netlify.app)
 
 ## Project Description
 
